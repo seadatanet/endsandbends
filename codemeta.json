@@ -1,11 +1,12 @@
 {
   "@context": "https://w3id.org/codemeta/3.0",
+  "@id": "https://doi.org/10.12770/5fea5584-e16a-4c22-927f-b11e25ff7b58",
   "type": "SoftwareSourceCode",
   "name": "EndsAndBends",
   "description": "SeaDataNet navigation data quality control and reduction tool.",
   "version": "2.2.0",
   "url": "http://www.seadatanet.org/Standards-Software/Software/EndsAndBends",
-  "codeRepository": "https://gitlab.ifremer.fr/endsandbends/endsandbends",
+  "codeRepository": "https://github.com/seadatanet/endsandbends",
   "programmingLanguage": "Java",
   "runtimePlatform": "JVM",
   "operatingSystem": [
