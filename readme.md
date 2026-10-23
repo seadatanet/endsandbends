@@ -5,13 +5,14 @@
 ![EndsAndBends logo](img/endsandbends-logo.jpg "EndsAndBends logo")
 
 [![DOI](https://img.shields.io/badge/DOI-10.12770%2F5fea5584--e16a--4c22--927f--b11e25ff7b58-blue)](https://doi.org/10.12770/5fea5584-e16a-4c22-927f-b11e25ff7b58)
+[![SWH](https://archive.softwareheritage.org/badge/swh:1:rev:f22577cec11cc043a76753a7449e9f708744a8f8/)](https://archive.softwareheritage.org/swh:1:rev:f22577cec11cc043a76753a7449e9f708744a8f8)
 [![License: LGPL-3.0-only](https://img.shields.io/badge/License-LGPL--3.0--only-blue.svg)](https://spdx.org/licenses/LGPL-3.0-only.html)
 [![Current stable version](https://img.shields.io/badge/stable-2.2.0-blue)](https://www.seadatanet.org/Software/EndsAndBends/)
 
 ## Persistent identifiers
 
 - **DOI (Digital Object Identifier):** [10.12770/5fea5584-e16a-4c22-927f-b11e25ff7b58](https://doi.org/10.12770/5fea5584-e16a-4c22-927f-b11e25ff7b58), for persistent identification and citation of the software.
-- **SWHID (SoftWare Hash IDentifier):** pending. A version-specific identifier will be added once the source code for EndsAndBends 2.2.0 has been archived and its identifier verified in [Software Heritage](https://archive.softwareheritage.org/).
+- **SWHID (SoftWare Hash IDentifier):** [`swh:1:rev:f22577cec11cc043a76753a7449e9f708744a8f8`](https://archive.softwareheritage.org/swh:1:rev:f22577cec11cc043a76753a7449e9f708744a8f8), for persistent identification and archiving of the source code in [Software Heritage](https://archive.softwareheritage.org/).
 
 ## Latest stable release
 

@@ -188,6 +188,12 @@
       "@type": "PropertyValue",
       "propertyID": "DOI",
       "value": "10.12770/5fea5584-e16a-4c22-927f-b11e25ff7b58"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "SWHID",
+      "value": "swh:1:rev:f22577cec11cc043a76753a7449e9f708744a8f8",
+      "url": "https://archive.softwareheritage.org/swh:1:rev:f22577cec11cc043a76753a7449e9f708744a8f8"
     }
   ],
   "keywords": [

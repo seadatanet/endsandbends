@@ -21,6 +21,8 @@ authors:
 identifiers:
   - type: doi
     value: '10.12770/5fea5584-e16a-4c22-927f-b11e25ff7b58'
+  - type: swh
+    value: 'swh:1:rev:f22577cec11cc043a76753a7449e9f708744a8f8'
   - type: url
     value: 'https://sextant.ifremer.fr/record/5fea5584-e16a-4c22-927f-b11e25ff7b58/'
 repository-code: 'https://github.com/seadatanet/endsandbends'
