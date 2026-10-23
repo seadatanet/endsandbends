@@ -1,0 +1,210 @@
+<html>
+	<head>
+		<title>Dossier de Spécifications du Logiciel</title>
+	</head>
+	<body link="blue" vlink="purple">
+<div>
+			<div>
+        <P><IMG src="images/image001.gif" width="137" height="103" border="0"></P>
+			</div>
+		</div>
+<P>&nbsp;</P>
+<H1 align="center"><a name="_Toc46225072">Principes généraux de l’application</a>
+				</H1>
+<P align="center">&nbsp;</P>
+<div>
+			<h2>
+				<a name="1_besoins"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Besoins pris en compte</a>
+			<BR>&nbsp;</h2>
+			<h3>
+				<a name="1_1_but"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;But de l’application</a></h3>
+			<p>
+				Le but de cette application est de permettre à l’opérateur de réduire le nombre de point d’un chemin de navigation pour pouvoir créer un fichier résumé de la base SISMER.<BR>				La réduction peut être très forte puisque les fichiers ne peuvent contenir que 999 points, alors que les fichiers de navigation en entrée peuvent contenir plusieurs centaines ne millier de points.
+			</p>
+			<h3>
+				<a name="1_2_source_donnees"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Source de donnée</a>
+			</h3>
+			<p>
+				Les fichiers d’entrée sont les fichiers SMF de navigation, basé sur le format NetCDF. La documentation de ce format se trouve sur le site IFREMER (cf. référence W1).<BR>Les fichiers d’entrée peuvent contenir jusqu’à 200 000 points de mesure.
+			</p>
+			<h3>
+				<a name="1_3_sismer"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Base de données SISMER</a>
+			</h3>
+			<p>
+				Les fichiers de sortie sont au format des fichiers résumé de la base de données SISMER (cf. document DR1).
+			<BR>				Ces fichiers contiennent au maximum 999 points par campagne, donc par fichier de navigation en entrée.
+			</p>
+			<h3>
+				<a name="1_4_user"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Interaction avec l’utilisateur</a>
+			</h3>
+			<p>
+				Les points retenus pour le fichier résumé doivent représenter au mieux le trajet du bâtiment. Pour atteindre ce but il est impératif que l’opérateur puisse ajuster les paramètres de la réduction.
+			<BR>Avec les moyens donnés par l’application, l’opérateur doit être en mesure de choisir le meilleur équilibre entre la précision et la limite de 999 points.
+			</p>
+		</div>
+<P>&nbsp;</P>
+<div>
+			<h2>
+<a name="2_lecture"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Lecture, décomposition et projection des points</a>
+			<BR>&nbsp;</h2>
+			<h3>
+				<a name="2_1_projection"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Projection des coordonnées</a>
+			</h3>
+			<p>
+				L’algorithme décrit plus bas calcule des distances, s’il fonctionnait directement à partir des coordonnées géographiques, il devrait calculer des distances sphériques. Afin d’éviter ces calculs, l’ensemble des points de navigation sont d’abord projetés.
+			<BR>				Cependant les coordonnées originale en latitude, longitude, ne sont pas perdus et il n’y a jamais de conversion inverse. Les coordonnées projetées ne sont utilisées que pour calculer les distances, il n’y a donc aucune perte de précision sur les coordonnées écrites dans le fichier résultat.
+			</p>
+			<h3>
+				<a name="2_2_cut"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Détection des arrêts de mesure</a>
+			</h3>
+			<p>
+				Les fichiers SMF de navigation contiennent les données récoltées pendant une campagne entière. Or la mesure de la position du bâtiment est quelque fois interrompue, ce qui provoque des discontinuités dans le tracé de navigation<BR>				Dès la lecture du fichier les données de la campagne sont décomposées en <i>segments</i>. Chaque segment contient des mesures continues.<BR>				Le critère de séparation est double&nbsp;: sur le temps et sur la distance. Un écart de 10 minutes (et la distance correspondante à une vitesse de 300m par minute) est utilisé par défaut.
+			</p>
+			<h3>
+				<a name="2_3_contraintes"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Contraintes de la projection</a>
+			</h3>
+			<p>
+			La seule projection codée dans l’application est la projection de Gauss-Krueger, utilisée dans le logiciel <i>Ends&amp;Bends</i> en Basic.
+			<BR>Cette projection impose une limite au-delà de laquelle les distances sont substantiellement déformées. La limite est que les points projetés dans le même système de référence ne doivent pas être séparés de plus de 5° de latitude. Cette limite est indicative, l’application permet de la modifier.
+			<BR>Afin de pouvoir projeter les points sans inconvénient, l’application coupe les segments trop étendus. Cette coupure est effectuée juste après la détection des arrêts de mesure, lors du chargement des données.
+			</p>
+		</div>
+<P>&nbsp;</P>
+<div>
+			<h2>
+<a name="3_algorithm"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Algorithme de réduction des points</a><BR>&nbsp;</h2>
+			<h3>
+<a name="3_1_base"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Algorithme de base</a>
+			</h3>
+			<p>
+				L’algorithme a implémenté se résume en trois points&nbsp;:</p>
+		</div>
+<UL>
+    <UL>
+        <LI>Au début les deux points extrémités d’un segment sont choisis,</LI>
+        <LI>Puis on ajoute uns à uns des points en prenant toujours celui qui est le plus loin de la ligne rejoignant les points déjà sélectionnés.</LI>
+        <LI>Le principe de fonctionnement de l’algorithme est résumé par la figure suivante.</LI>
+    </UL>
+</UL>
+		<p align="center">&nbsp;</p>
+    <P align="center"><IMG src="images/image003.gif" width="627" height="168" border="0"></P>
+    <P align="center"><IMG src="images/image005.gif" width="627" height="168" border="0"></P>
+    <P align="center">Figure 1, principe de fonctionnement de l'algorithme.</P>
+<div>
+			<p>
+				Dans le programme original <i>Ends&amp;Bends</i> en Basic, l’erreur globale entre le tracé réel et le tracé simplifié est estimée par la moyenne des carrés des distances entre les points réels et le tracé simplifié, divisé par la longueur totale du tracé réel&nbsp;:
+			</p>
+			<p>
+        <IMG src="images/equation.gif" align="absmiddle" width="110" height="49" border="0">où N est le nombre de points et l la longueur totale du tracé réel.
+			</p>
+			<p>
+				A l’aide de cette erreur, le logiciel défini 5 modèles correspondant chacun à un niveau d’erreur particulier (10<sup>-1</sup> pour le modèle 1, jusqu’à 10<sup>-5</sup> pour le modèle 5).
+			</p>
+			<p>
+				<i><u>Note&nbsp;:</u></i>
+			<BR>				<i>L’algorithme est très sensible au calcul de l’erreur puisque c’est lui qui détermine quand il est arrêté. Par exemple le fait que&nbsp;N apparaisse en dénominateur implique que l’algorithme est plus clément pour segments longs. Pour s’en rendre compte il suffit de comparer les résultats obtenus avec les calculs optimisé sur la distance ou l’erreur.</i>
+			</p>
+		</div>
+    <P>&nbsp;</P>
+<div>
+			<h3>
+<a name="3_2_algo999"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Algorithme adapté pour prendre en compte la limite de 999 points</a>
+			</h3>
+			<p>
+				L’algorithme de base décrit plus haut peut être adapté pour mieux prendre en compte la limite de 999 points.<BR>				En effet, l’inconvénient de la technique «&nbsp;des modèles&nbsp;», est ces modèles ne dépendent pas du tout du nombre de point obtenu&nbsp;: il arrive fréquemment qu’un modèle ait beaucoup moins de 999 points alors que le suivant en a beaucoup plus, l’opérateur doit alors sélectionner le modèle le moins précis pour respecter la limite.<BR>				Or l’algorithme fonctionne en ajoutant les points uns à uns, on peut donc décider de l’arrêter en utilisant n’importe quel critère.<BR>				L’algorithme implémente dans la nouvelle application <i>Ends&amp;Bends</i> utilise cette particularité pour calculer des modèles intermédiaires ayant un multiple de 999 points. Le résultat n’est plus limité à 5 modèles, il peut en contenir jusqu’à 10.</p>
+			<p>
+				Deux critères sont donc utilisés pour définir un modèle&nbsp;:
+			</p>
+        <UL>
+            <UL>
+                <LI>Soit l’erreur passe en dessous d’une limite en 10<sup>-n</sup>,</LI>
+                <LI>Soit le nombre de point dépasse un multiple de 999.</LI>
+            </UL>
+        </UL>
+		</div>
+    <P>&nbsp;</P>
+<div>
+			<h3>
+<a name="3_3_segment"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Calcul par segment</a>
+			</h3>
+			<p>
+				Pour régler plus finement la réduction des points sur un segment, un autre variante de l’algorithme a été implémentée&nbsp;: il s’agit de demander à l’opérateur le nombre de points qu’il désire obtenir.<BR>				Dans cette variante, l’algorithme reste inchangé, mais un seul modèle est calculé. Ce modèle contient exactement le nombre de points demandés.
+			</p>
+		</div>
+    <P>&nbsp;</P>
+<div>
+			<h3>
+				<a name="3_4_optim"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Calcul optimisé</a>
+			</h3>
+			<p>
+				Finalement une dernière méthode a été implémentée, toujours en exploitant le fait que l’algorithme ajoute les points uns à uns et en changeant le critère d’arrêt pour l’ajout des points.<BR>				Ce calcul est destiné à prendre en compte la limite des 999 points sur l’ensemble de la campagne et non plus sur un seul segment.<BR>				Pour ce faire l’algorithme traite tous les segments en même temps. A chaque itération il détermine quel segment il doit optimiser puis ajoute un point à ce segment. L’algorithme s’arrête quand la somme des points de chaque segment atteint 999.
+			</p>
+			<p>
+				Le choix du segment à optimisé peut se faire de deux façons&nbsp;:
+			</p>
+        <UL>
+            <UL>
+                <LI>				soit on choisit celui qui possède le point le plus éloigné du tracé simplifié,
+			</LI>
+                <LI>				soit on choisit celui qui a la plus grosse erreur globale.</LI>
+            </UL>
+        </UL>
+		</div>
+    <P>
+			&nbsp;</P>
+    <P>&nbsp;</P>
+<div>
+			<h2>
+<a name="4_params"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Paramétrage de l’algorithme</a>
+			</h2>
+		</div>
+    <P>&nbsp;</P>
+<div>
+			<p>
+				Ces algorithmes reposent tous sur deux composantes primordiales&nbsp;:
+			</p>
+        <UL>
+            <UL>
+                <LI>				la projection,
+			</LI>
+                <LI>				le calcul de la distance.
+			</LI>
+            </UL>
+        </UL>
+			<p>
+				L’application a été conçue pour que ces traitements puissent être paramétrés.
+			</p>
+			<h3>
+				&nbsp;</h3>
+			<h3>
+<a name="4_1_projection"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Projection</a>
+			</h3>
+			<p>
+				Seule la projection de Gauss-Krueger a été implémentée pour l’instant.<BR>				L’application propose également une projection «&nbsp;Tests&nbsp;» qui consiste à simplement multiplier les coordonnées géographiques par 100, il ne s’agit donc pas réellement d’une projection.</p>
+		</div>
+    <P>
+			&nbsp;</P>
+<div>
+        <H3><a name="4_2_distance"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Distance</a></H3>
+		</div>
+    <P>L’application implémente deux méthodes de calcul de la distance d’un point à une droite&nbsp;:
+			</P>
+<div>
+        <UL>
+            <UL>
+                <LI>				La distance verticale, sur l’axe des y, telle qu’elle était implémentée dans le logiciel en Basic.
+			</LI>
+                <LI>				La distance orthogonale, c’est à dire perpendiculairement au tracé simplifié.
+			</LI>
+            </UL>
+        </UL>
+			<p>
+&nbsp;</p>
+		</div>
+		<div>
+			<div>
+			</div>
+		</div>
+	</body>
+</html>
+

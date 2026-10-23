@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.1 
+          http://maven.apache.org/xsd/assembly-2.1.1.xsd">
+    
+    <id>linux</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    
+    <includeBaseDirectory>false</includeBaseDirectory>
+    
+    <fileSets>
+        <!-- Fichiers racine -->
+        <fileSet>
+            <filtered>true</filtered>
+            <directory>${project.basedir}</directory>
+            <outputDirectory>EAB</outputDirectory>
+            <includes>
+                <include>readme.md</include>
+                <include>LICENSE.txt</include>
+                <include>CHANGELOG.md</include>
+            </includes>
+        </fileSet>
+        
+        <!-- Scripts de lancement Linux avec droits d'exécution automatiques -->
+        <fileSet>
+            <directory>${project.basedir}/src/distribution/linux</directory>
+            <outputDirectory>EAB</outputDirectory>
+            <includes>
+                <include>*.sh</include>
+            </includes>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        
+        <!-- Répertoire help/ complet -->
+        <fileSet>
+            <directory>${project.basedir}/help</directory>
+            <outputDirectory>EAB/help</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        
+        <!-- Répertoire help_FR/ complet -->
+        <fileSet>
+            <directory>${project.basedir}/help_FR</directory>
+            <outputDirectory>EAB/help_FR</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        
+        <!-- Répertoire img/ -->
+        <fileSet>
+            <directory>${project.basedir}/img</directory>
+            <outputDirectory>EAB/img</outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        
+        <!-- JAR principal avec toutes les dépendances -->
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>EAB</outputDirectory>
+            <includes>
+                <include>EndsAndBends.jar</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

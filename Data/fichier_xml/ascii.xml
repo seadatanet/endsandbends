@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OutputModel format="ASCII_IFREMER_FORMAT">
+	<Type>Survey</Type>
+	<!--<Type>Data</Type>-->
+	<AsciiOperator>1</AsciiOperator>
+	<Comments>25</Comments>
+	<CampaignId>1</CampaignId>
+	<CampaignTitle>25</CampaignTitle>
+	<BoatName>1</BoatName>
+</OutputModel>

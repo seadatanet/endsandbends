@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OutputModel format="COLUMNS_ASCII_FORMAT">
+	
+	<TimeCorrection>1</TimeCorrection>
+	<Tokenizer>1</Tokenizer>	
+	<AsciiResolution>1</AsciiResolution>		
+	
+	<DateTime >
+		<AsciiElement type="DateAndTime" format="yyyy-MM-DDThh:mm:ss" column="3"/>	
+	</DateTime>
+
+	<Coordinates>
+		<AsciiElement type="Latitude" format="+DD.ddddd" column="5"/>
+		<AsciiElement type="Longitude" format="+DDD.ddddd" column="6"/>
+	</Coordinates>
+</OutputModel>

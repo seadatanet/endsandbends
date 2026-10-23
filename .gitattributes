@@ -1,0 +1,20 @@
+* text=auto
+
+# ==========================================
+# Directives export-ignore (Snapshot GitHub)
+# ==========================================
+# Pipeline GitLab CI interne
+.gitlab-ci.yml export-ignore
+
+# Jeux de données de test volumineux internes (rejetés par GitHub > 100MB)
+Data_tests/** export-ignore
+
+# Fichiers de configuration IDE et builds locaux
+.settings/** export-ignore
+.metadata/** export-ignore
+nbproject/** export-ignore
+endsAndBends.log export-ignore
+*.log export-ignore
+dependency-reduced-pom.xml export-ignore
+build.bat export-ignore
+run.bat export-ignore

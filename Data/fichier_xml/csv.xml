@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InputModel format="CSV_FORMAT">
+	<TimeFilter enabled="true">
+		<StartDate>2010-06-30T10:00:00.000</StartDate>
+		<EndDate>2010-06-30T12:00:00.000</EndDate>
+	</TimeFilter>
+	
+	<DateTime enabled="true" joinEnabled="true">
+		<CsvElement type="DateAndTime" format="yyyy-MM-DDThh:mm:ss" column="3"/>
+	</DateTime>
+
+	<Coordinates>
+		<CsvElement type="Latitude" format="+DD.ddddd" column="5"/>
+		<CsvElement type="Longitude" format="+DDD.ddddd" column="6"/>
+	</Coordinates>
+	
+	<FirstLine>1</FirstLine>
+	<LastLine>25</LastLine>
+	<DelimiterUsed>,</DelimiterUsed>	
+
+	<CheckValidity enabled="true">
+		<ColumnNumber>3</ColumnNumber>
+		<Operator>SUPERIOR</Operator>
+		<ValidityValue>10.0</ValidityValue>
+	</CheckValidity>
+</InputModel>

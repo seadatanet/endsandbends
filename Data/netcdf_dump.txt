@@ -1,0 +1,439 @@
+netcdf 0001_19990319_111007 {
+dimensions:
+	mbHistoryRecNbr = 20 ;
+	mbNameLength = 20 ;
+	mbCommentLength = 256 ;
+	mbPositionNbr = UNLIMITED ; // (140 currently)
+variables:
+	int mbHistDate(mbHistoryRecNbr) ;
+		mbHistDate:type = "integer" ;
+		mbHistDate:long_name = "History date" ;
+		mbHistDate:name_code = "MB_HISTORY_DATE" ;
+		mbHistDate:units = "Julian date" ;
+		mbHistDate:unit_code = "MB_JULIAN_DATE" ;
+		mbHistDate:add_offset = 2440588 ;
+		mbHistDate:scale_factor = 1 ;
+		mbHistDate:valid_minimum = -25567 ;
+		mbHistDate:valid_maximum = 47482 ;
+		mbHistDate:missing_value = 2147483647 ;
+		mbHistDate:format_C = "%d" ;
+		mbHistDate:orientation = "direct" ;
+	int mbHistTime(mbHistoryRecNbr) ;
+		mbHistTime:type = "integer" ;
+		mbHistTime:long_name = "History time" ;
+		mbHistTime:name_code = "MB_HISTORY_TIME" ;
+		mbHistTime:units = "ms" ;
+		mbHistTime:unit_code = "MB_MS" ;
+		mbHistTime:add_offset = 0 ;
+		mbHistTime:scale_factor = 1 ;
+		mbHistTime:valid_minimum = 0 ;
+		mbHistTime:valid_maximum = 86399999 ;
+		mbHistTime:missing_value = -2147483648 ;
+		mbHistTime:format_C = "%d" ;
+		mbHistTime:orientation = "direct" ;
+	char mbHistCode(mbHistoryRecNbr) ;
+		mbHistCode:type = "integer" ;
+		mbHistCode:long_name = "History code" ;
+		mbHistCode:name_code = "MB_HISTORY_CODE" ;
+		mbHistCode:units = "" ;
+		mbHistCode:unit_code = "MB_NOT_DEFINED" ;
+		mbHistCode:add_offset = 0 ;
+		mbHistCode:scale_factor = 1 ;
+		mbHistCode:valid_minimum = 1 ;
+		mbHistCode:valid_maximum = 255 ;
+		mbHistCode:missing_value = 0 ;
+		mbHistCode:format_C = "%d" ;
+		mbHistCode:orientation = "direct" ;
+	char mbHistAutor(mbHistoryRecNbr, mbNameLength) ;
+		mbHistAutor:type = "string" ;
+		mbHistAutor:long_name = "History autor" ;
+		mbHistAutor:name_code = "MB_HISTORY_AUTOR" ;
+	char mbHistModule(mbHistoryRecNbr, mbNameLength) ;
+		mbHistModule:type = "string" ;
+		mbHistModule:long_name = "History module" ;
+		mbHistModule:name_code = "MB_HISTORY_MODULE" ;
+	char mbHistComment(mbHistoryRecNbr, mbCommentLength) ;
+		mbHistComment:type = "string" ;
+		mbHistComment:long_name = "History comment" ;
+		mbHistComment:name_code = "MB_HISTORY_COMMENT" ;
+	int mbDate(mbPositionNbr) ;
+		mbDate:type = "integer" ;
+		mbDate:long_name = "Date of cycle" ;
+		mbDate:name_code = "MB_POSITION_DATE" ;
+		mbDate:units = "Julian Date" ;
+		mbDate:unit_code = "MB_JULIAN_DATE" ;
+		mbDate:add_offset = 2440588 ;
+		mbDate:scale_factor = 1 ;
+		mbDate:valid_minimum = -25567 ;
+		mbDate:valid_maximum = 47482 ;
+		mbDate:missing_value = 2147483647 ;
+		mbDate:format_C = "%d" ;
+		mbDate:orientation = "direct" ;
+	int mbTime(mbPositionNbr) ;
+		mbTime:type = "integer" ;
+		mbTime:long_name = "Time of cycle" ;
+		mbTime:name_code = "MB_POSITION_TIME" ;
+		mbTime:units = "ms" ;
+		mbTime:unit_code = "MB_MS" ;
+		mbTime:add_offset = 0 ;
+		mbTime:scale_factor = 1 ;
+		mbTime:valid_minimum = 0 ;
+		mbTime:valid_maximum = 86399999 ;
+		mbTime:missing_value = -2147483648 ;
+		mbTime:format_C = "%d" ;
+		mbTime:orientation = "direct" ;
+	int mbOrdinate(mbPositionNbr) ;
+		mbOrdinate:type = "real" ;
+		mbOrdinate:long_name = "Latitude" ;
+		mbOrdinate:name_code = "MB_POSITION_LATITUDE" ;
+		mbOrdinate:units = "degree" ;
+		mbOrdinate:unit_code = "MB_DEGREE" ;
+		mbOrdinate:add_offset = 0. ;
+		mbOrdinate:scale_factor = 5.e-008 ;
+		mbOrdinate:valid_minimum = -1800000000 ;
+		mbOrdinate:valid_maximum = 1800000000 ;
+		mbOrdinate:missing_value = -2147483648 ;
+		mbOrdinate:format_C = "%f" ;
+		mbOrdinate:orientation = "direct" ;
+	int mbAbscissa(mbPositionNbr) ;
+		mbAbscissa:type = "real" ;
+		mbAbscissa:long_name = "Longitude" ;
+		mbAbscissa:name_code = "MB_POSITION_LONGITUDE" ;
+		mbAbscissa:units = "degree" ;
+		mbAbscissa:unit_code = "MB_DEGREE" ;
+		mbAbscissa:add_offset = 0. ;
+		mbAbscissa:scale_factor = 1.e-007 ;
+		mbAbscissa:valid_minimum = -1800000000 ;
+		mbAbscissa:valid_maximum = 1800000000 ;
+		mbAbscissa:missing_value = -2147483648 ;
+		mbAbscissa:format_C = "%f" ;
+		mbAbscissa:orientation = "direct" ;
+	short mbAltitude(mbPositionNbr) ;
+		mbAltitude:type = "real" ;
+		mbAltitude:long_name = "Altitude" ;
+		mbAltitude:name_code = "MB_POSITION_ALTITUDE" ;
+		mbAltitude:units = "m" ;
+		mbAltitude:unit_code = "MB_M" ;
+		mbAltitude:add_offset = 0. ;
+		mbAltitude:scale_factor = 0.2 ;
+		mbAltitude:valid_minimum = -32769 ;
+		mbAltitude:valid_maximum = 32767 ;
+		mbAltitude:missing_value = 0 ;
+		mbAltitude:format_C = "%.2f" ;
+		mbAltitude:orientation = "direct" ;
+	short mbImmersion(mbPositionNbr) ;
+		mbImmersion:type = "real" ;
+		mbImmersion:long_name = "Immersion" ;
+		mbImmersion:name_code = "MB_POSITION_IMMERSION" ;
+		mbImmersion:units = "m" ;
+		mbImmersion:unit_code = "MB_M" ;
+		mbImmersion:add_offset = 0. ;
+		mbImmersion:scale_factor = 0.2 ;
+		mbImmersion:valid_minimum = -32769 ;
+		mbImmersion:valid_maximum = 32767 ;
+		mbImmersion:missing_value = 0 ;
+		mbImmersion:format_C = "%.2f" ;
+		mbImmersion:orientation = "direct" ;
+	int mbHeading(mbPositionNbr) ;
+		mbHeading:type = "real" ;
+		mbHeading:long_name = "Ship heading" ;
+		mbHeading:name_code = "MB_POSITION_HEADING" ;
+		mbHeading:units = "degree" ;
+		mbHeading:unit_code = "MB_DEGREE" ;
+		mbHeading:add_offset = 0. ;
+		mbHeading:scale_factor = 0.01 ;
+		mbHeading:valid_minimum = 1 ;
+		mbHeading:valid_maximum = 35999 ;
+		mbHeading:missing_value = 65535 ;
+		mbHeading:format_C = "%.2f" ;
+		mbHeading:orientation = "direct" ;
+	short mbSpeed(mbPositionNbr) ;
+		mbSpeed:type = "real" ;
+		mbSpeed:long_name = "Vessel speed" ;
+		mbSpeed:name_code = "MB_POSITION_SPEED" ;
+		mbSpeed:units = "knot" ;
+		mbSpeed:unit_code = "MB_KNOT" ;
+		mbSpeed:add_offset = 0. ;
+		mbSpeed:scale_factor = 0.01 ;
+		mbSpeed:valid_minimum = -32767 ;
+		mbSpeed:valid_maximum = 32767 ;
+		mbSpeed:missing_value = -32768 ;
+		mbSpeed:format_C = "%.2f" ;
+		mbSpeed:orientation = "direct" ;
+	char mbPType(mbPositionNbr) ;
+		mbPType:type = "integer" ;
+		mbPType:long_name = "PType of captor" ;
+		mbPType:name_code = "MB_POSITION_TYPE" ;
+		mbPType:units = "" ;
+		mbPType:unit_code = "MB_NOT_DEFINED" ;
+		mbPType:add_offset = 0 ;
+		mbPType:scale_factor = 1 ;
+		mbPType:valid_minimum = 1 ;
+		mbPType:valid_maximum = 255 ;
+		mbPType:missing_value = 0 ;
+		mbPType:format_C = "%d" ;
+		mbPType:orientation = "direct" ;
+	char mbPQuality(mbPositionNbr) ;
+		mbPQuality:type = "integer" ;
+		mbPQuality:long_name = "Factor of quality" ;
+		mbPQuality:name_code = "MB_POSITION_QUALITY" ;
+		mbPQuality:units = "" ;
+		mbPQuality:unit_code = "MB_NOT_DEFINED" ;
+		mbPQuality:add_offset = 0 ;
+		mbPQuality:scale_factor = 1 ;
+		mbPQuality:valid_minimum = 1 ;
+		mbPQuality:valid_maximum = 255 ;
+		mbPQuality:missing_value = 0 ;
+		mbPQuality:format_C = "%d" ;
+		mbPQuality:orientation = "direct" ;
+	char mbPFlag(mbPositionNbr) ;
+		mbPFlag:type = "integer" ;
+		mbPFlag:long_name = "Flag of position" ;
+		mbPFlag:name_code = "MB_POSITION_FLAG" ;
+		mbPFlag:units = "" ;
+		mbPFlag:unit_code = "MB_NOT_DEFINED" ;
+		mbPFlag:add_offset = 0 ;
+		mbPFlag:scale_factor = 1 ;
+		mbPFlag:valid_minimum = -127 ;
+		mbPFlag:valid_maximum = 127 ;
+		mbPFlag:missing_value = -128 ;
+		mbPFlag:format_C = "%d" ;
+		mbPFlag:orientation = "direct" ;
+
+// global attributes:
+		:mbVersion = 1s ;
+		:mbName = "0001_19990319_111007                                                                                                                                                                                                                                           " ;
+		:mbClasse = "MB_NAVIGATION" ;
+		:mbLevel = 0s ;
+		:mbNbrHistoryRec = 1 ;
+		:mbTimeReference = "Julian date for 1970/01/01 = 2 440 588" ;
+		:mbStartDate = 2451257 ;
+		:mbStartTime = 40208153 ;
+		:mbEndDate = 2451257 ;
+		:mbEndTime = 40347428 ;
+		:mbNorthLatitude = 48.3230807 ;
+		:mbSouthLatitude = 48.3200217 ;
+		:mbEastLongitude = -4.6204871 ;
+		:mbWestLongitude = -4.6284461 ;
+		:mbMeridien180 = "" ;
+		:mbGeoDictionnary = "DIGEST              " ;
+		:mbGeoRepresentation = "WGS84               " ;
+		:mbGeodesicSystem = "                    " ;
+		:mbEllipsoidName = "WGE                                                                                                                                                                                                                                                            " ;
+		:mbfEllipsoidA = 6378137. ;
+		:mbEllipsoidInvF = 0.00335281067183099 ;
+		:mbEllipsoidE2 = 0.00669438000426083 ;
+		:mbProjType = 0 ;
+		:mbfProjParameterValue = "" ;
+		:mbProjParameterCode = "                                                                                                                                                                                                                                                               " ;
+		:mbShip = "BH2 Laperouse" ;
+		:mbSurvey = "proc" ;
+		:mbReference = "NonDefini" ;
+		:mbPointCounter = 140 ;
+data:
+
+ mbHistDate = 10669, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ ;
+
+ mbHistTime = 59718000, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _ ;
+
+ mbHistCode = "\001" ;
+
+ mbHistAutor =
+  "jwolff",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "" ;
+
+ mbHistModule =
+  "smfConversion",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "" ;
+
+ mbHistComment =
+  "Creation du fichier de sauvegarde",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "" ;
+
+ mbDate = 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 10669, 
+    10669 ;
+
+ mbTime = 40206730, 40207844, 40208853, 40209735, 40210884, 40211857, 
+    40212730, 40213846, 40214856, 40215736, 40216883, 40217859, 40218732, 
+    40219853, 40220857, 40221737, 40222884, 40223859, 40224734, 40225848, 
+    40226861, 40227736, 40228882, 40229866, 40230734, 40231850, 40232862, 
+    40233740, 40234885, 40235861, 40236734, 40237850, 40238862, 40239739, 
+    40240883, 40241862, 40242735, 40243851, 40244857, 40245740, 40246866, 
+    40247856, 40248694, 40249858, 40250862, 40251741, 40252887, 40253863, 
+    40254737, 40255853, 40256867, 40257742, 40258887, 40259872, 40260738, 
+    40261855, 40262862, 40263743, 40264891, 40265867, 40266740, 40267855, 
+    40268867, 40269744, 40270888, 40271866, 40272742, 40273856, 40274866, 
+    40275744, 40276893, 40277867, 40278743, 40279866, 40280863, 40281746, 
+    40282874, 40283870, 40284744, 40285859, 40286875, 40287747, 40288865, 
+    40289875, 40290743, 40291860, 40292874, 40293748, 40294870, 40295870, 
+    40296745, 40297861, 40298871, 40299751, 40300867, 40301873, 40302746, 
+    40303862, 40304870, 40305752, 40306874, 40307874, 40308747, 40309870, 
+    40310875, 40311751, 40312876, 40313873, 40314748, 40315865, 40316876, 
+    40317752, 40318871, 40319881, 40320749, 40321865, 40322879, 40323753, 
+    40324876, 40325884, 40326752, 40327866, 40328878, 40329755, 40330873, 
+    40331877, 40332751, 40333866, 40334871, 40335756, 40336871, 40337872, 
+    40338751, 40339870, 40340872, 40341755, 40342874, 40343873, 40344753, 
+    40345864 ;
+
+ mbOrdinate = 966399666, 966400333, 966400666, 966401333, 966401666, 
+    966402333, 966402666, 966403333, 966403666, 966404333, 966404666, 
+    966405333, 966406000, 966406333, 966406666, 966407333, 966407666, 
+    966408333, 966408666, 966409333, 966409666, 966409999, 966410333, 
+    966410999, 966411333, 966411666, 966412333, 966412666, 966412999, 
+    966413333, 966414000, 966414333, 966414666, 966415000, 966415333, 
+    966415666, 966415999, 966416666, 966416999, 966417333, 966417666, 
+    966417999, 966418333, 966418666, 966418999, 966419666, 966419999, 
+    966420333, 966420666, 966421000, 966421333, 966421999, 966422333, 
+    966422666, 966422999, 966423333, 966423999, 966424333, 966424666, 
+    966425333, 966425666, 966425999, 966426666, 966426999, 966427333, 
+    966427999, 966428333, 966428999, 966429333, 966429666, 966429999, 
+    966430333, 966430999, 966431666, 966431999, 966432333, 966432999, 
+    966433333, 966433666, 966434333, 966434999, 966435333, 966435666, 
+    966436333, 966436666, 966437333, 966437666, 966437999, 966438666, 
+    966438999, 966439333, 966439666, 966439999, 966440666, 966440999, 
+    966441333, 966441666, 966441999, 966442666, 966442999, 966443333, 
+    966443666, 966444333, 966444666, 966444999, 966445333, 966445666, 
+    966446333, 966446666, 966446999, 966447333, 966447999, 966448333, 
+    966448999, 966449333, 966450000, 966450333, 966450999, 966451333, 
+    966451999, 966452666, 966452999, 966453666, 966454000, 966454666, 
+    966454999, 966455666, 966455999, 966456666, 966456999, 966457666, 
+    966457999, 966458333, 966458999, 966459333, 966459666, 966460333, 
+    966460666, 966460999, 966461666 ;
+
+ mbAbscissa = -46285166, -46284666, -46283999, -46283500, -46282999, 
+    -46282333, -46281833, -46281166, -46280666, -46280166, -46279500, 
+    -46279000, -46278500, -46277833, -46277333, -46276666, -46276166, 
+    -46275666, -46274999, -46274499, -46273833, -46273333, -46272666, 
+    -46272166, -46271666, -46270999, -46270499, -46269833, -46269166, 
+    -46268666, -46268000, -46267499, -46266833, -46266166, -46265666, 
+    -46264999, -46264333, -46263833, -46263166, -46262666, -46262000, 
+    -46261499, -46260833, -46260166, -46259666, -46258999, -46258333, 
+    -46257833, -46257166, -46256500, -46255999, -46255333, -46254833, 
+    -46254333, -46253666, -46253166, -46252666, -46252000, -46251500, 
+    -46250999, -46250333, -46249666, -46249166, -46248499, -46248000, 
+    -46247499, -46246833, -46246333, -46245666, -46245166, -46244666, 
+    -46243999, -46243499, -46243000, -46242499, -46241833, -46241333, 
+    -46240666, -46240166, -46239666, -46238999, -46238499, -46237999, 
+    -46237333, -46236833, -46236333, -46235666, -46235166, -46234500, 
+    -46233999, -46233333, -46232833, -46232166, -46231666, -46230999, 
+    -46230333, -46229666, -46229166, -46228499, -46227999, -46227333, 
+    -46226833, -46226166, -46225499, -46224999, -46224333, -46223833, 
+    -46223166, -46222499, -46221999, -46221333, -46220833, -46220166, 
+    -46219666, -46219166, -46218500, -46218000, -46217333, -46216833, 
+    -46216333, -46215833, -46215333, -46214666, -46214166, -46213499, 
+    -46212999, -46212499, -46211833, -46211333, -46210666, -46210166, 
+    -46209499, -46208999, -46208333, -46207833, -46207166, -46206499, 
+    -46205999, -46205333, -46204833 ;
+
+ mbAltitude = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ mbImmersion = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ;
+
+ mbHeading = 5383, 5384, 5400, 5422, 5458, 5493, 5527, 5563, 5584, 5597, 
+    5608, 5625, 5647, 5688, 5734, 5781, 5854, 5906, 5936, 5952, 5954, 5954, 
+    5965, 5984, 6008, 6040, 6068, 6102, 6150, 6188, 6222, 6254, 6268, 6263, 
+    6234, 6200, 6166, 6131, 6111, 6100, 6097, 6102, 6111, 6113, 6100, 6077, 
+    6024, 5968, 5920, 5856, 5802, 5759, 5713, 5681, 5658, 5641, 5640, 5647, 
+    5666, 5688, 5711, 5738, 5747, 5743, 5722, 5691, 5659, 5620, 5590, 5568, 
+    5549, 5540, 5538, 5536, 5540, 5550, 5559, 5563, 5568, 5575, 5595, 5625, 
+    5686, 5761, 5834, 5929, 6008, 6068, 6120, 6140, 6145, 6141, 6125, 6102, 
+    6070, 6038, 6011, 5988, 5977, 5974, 5975, 5970, 5963, 5938, 5893, 5836, 
+    5740, 5641, 5554, 5452, 5381, 5336, 5293, 5272, 5259, 5261, 5274, 5293, 
+    5329, 5370, 5409, 5461, 5513, 5558, 5615, 5666, 5715, 5781, 5831, 5861, 
+    5893, 5913, 5918, 5918, 5913, 5904, 5893, 5886, 5884, 5890 ;
+
+ mbSpeed = 0, 909, 960, 1012, 960, 1012, 966, 1012, 966, 1012, 966, 989, 
+    1008, 989, 975, 1001, 987, 993, 1008, 999, 999, 1001, 991, 981, 983, 964, 
+    969, 977, 977, 956, 977, 966, 952, 973, 973, 964, 987, 975, 964, 964, 
+    954, 952, 975, 962, 954, 975, 966, 936, 960, 968, 938, 968, 952, 923, 
+    952, 933, 919, 940, 923, 933, 956, 964, 950, 973, 973, 962, 985, 993, 
+    979, 979, 973, 964, 1001, 1006, 977, 1006, 999, 987, 989, 977, 977, 979, 
+    969, 969, 971, 962, 948, 950, 954, 952, 973, 962, 948, 969, 971, 960, 
+    981, 969, 991, 991, 969, 960, 991, 969, 960, 981, 964, 985, 993, 993, 
+    979, 1008, 1001, 989, 989, 995, 964, 995, 964, 971, 993, 991, 991, 993, 
+    1014, 983, 1014, 993, 981, 1010, 1003, 991, 991, 997, 985, 993, 1016, 
+    985, 1016, 1008 ;
+
+ mbPType = "" ;
+
+ mbPQuality = "" ;
+
+ mbPFlag = "\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002\002" ;
+}

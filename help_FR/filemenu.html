@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Manuel Utilisateur</title>
+</head>
+<body link="blue" vlink="purple">
+<div>
+<p>&nbsp;</p>
+
+</div>
+<H1 align="center"><IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0">Fonctions sur les fichiers<IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0"></H1>
+<P align="center">&nbsp;</P>
+<div>
+<h2><a name="1_open"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Ouverture d’un fichier de navigation</a></h2>
+
+<p>L'application demande de saisir un nom de fichier. Les seuls fichiers lus sont les fichiers SMF de navigation. Néanmoins l'application supporte les fichiers pour lesquels les variables 
+
+<i>mbDate</i> et 
+
+<i>mbTime</i> sont absentes. Par contre elle ne lit que les fichiers de navigation dont les coordonnées sont des latitudes et des longitudes exprimées en degrés.</p>
+
+<p><b><i>Lorsque cette fonction est appelée, l'application perd toutes les données qui étaient en mémoire auparavant.</i></b></p>
+
+<p>Lorsque les données sont chargées en mémoire, l'application effectue les opérations suivantes :</p>
+
+<ul>
+<li>Elle décompose la campagne en segments de navigation continus, <A href="lecture.html#2_cut">détails</A></li>
+
+<li>Elle décompose les segments qui sont trop étendus pour la projection sélectionnée, <A href="lecture.html#3_gk">détails</A>.</li>
+
+<li>Elle effectue la projection des points, <A href="lecture.html#1_project">détails</A>.</li>
+</ul>
+
+<p>Comme ces opérations utilisent la projection sélectionnée, ainsi que d'autres options, les données en mémoire doivent être supprimées quand la projection est changée.</p>
+
+<p>Quand le fichier est correctement chargé, l'application affiche dans la liste centrale les segments issus du fichier de navigation.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="2_calculauto"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Calcul automatique des modèles</a></h2>
+
+<p>Cette fonction utilise l'algorithme de base, décrit <A href="algorithm.html#2_adapt">ici</A>. Il s'agit de calculer plusieurs modèles par segment, au maximum dix.<br />
+Pour chaque segment un modèle par défaut est sélectionné. Deux critères sont pris en compte pour choisir le modèle par défaut :</p>
+
+<ul>
+<li>Le premier modèle qui contient le nombre maximum de points dans un fichier résumé.</li>
+
+<li>Le premier modèle pour lequel l'erreur est inférieure à 10
+
+<sup>-5</sup>.</li>
+</ul>
+
+<p>Après ce calcul, la liste des segments est mise à jour. Comme chaque segment contient plusieurs modèles, les listes déroulantes de la colonne &quot;modèle&quot; de chaque segment sont actives.<br />
+Le calcul effectué ne prend pas en compte le nombre de points maximum pour l'ensemble de la campagne, le nombre total de points obtenu par défaut est donc le plus souvent supérieur à la limite acceptable par un fichier résumé, sauf la liste centrale ne contient qu'un seul segment.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="3_optimdist"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Calcul optimisé sur la distance</a></h2>
+
+<p>Cette fonction utilise l'algorithme optimisé, décrit <A href="algorithm.html#4_optim">ici</A>, en utilisant la distance maximale pour critère de choix du segment à optimiser.<br />
+Pour chaque segment, un seul modèle est calculé, il est nommé &quot;optim dist&quot;.<br />
+Après ce calcul, la liste des segments est mise à jour. Comme chaque segment contient un seul modèle, les colonnes &quot;modèle&quot; de chaque segment sont inactives.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="4_optimerror"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Calcul optimisé sur l’erreur globale</a></h2>
+
+<p>Cette fonction utilise l'algorithme optimisé, décrit <A href="algorithm.html#4_optim">ici</A>, en utilisant l'erreur pour critère de choix du segment à optimiser.<br />
+Pour chaque segment, un seul modèle est calculé, il est nommé &quot;optim error&quot;.<br />
+Après ce calcul, la liste des segments est mise à jour. Comme chaque segment contient un seul modèle, les colonnes &quot;modèle&quot; de chaque segment sont inactives.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="5_save"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Sauvegarde d’un fichier résumé</a></h2>
+
+<p>Cette fonction permet d'exporter un fichier résumé à partir des modèles sélectionnés sur chaque segment de la liste centrale. Si aucun modèle n'est sélectionné, le segment originel est utilisé.<br />
+L'application affiche un avertissement si le nombre de point total est supérieur à la limite imposée par la définition des fichiers résumé.<br />
+Puis elle demande de saisir un nom de fichier et exporte les données.<br />
+Les coordonnées écrites dans le fichier résumé sont celles qui ont été initialement lues dans le fichier de navigation, elles n'ont subi aucune transformation.</p>
+
+<div>&nbsp;</div>
+</div>
+</body>
+</html>
+

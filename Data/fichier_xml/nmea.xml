@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InputModel format="NMEA_183_FORMAT">
+	<TimeFilter enabled="true">
+		<StartDate>2010-06-30T10:00:00.000</StartDate>
+		<EndDate>2010-06-30T12:00:00.000</EndDate>
+	</TimeFilter>
+	
+	<LossOfAccuracy>30</LossOfAccuracy>
+</InputModel>

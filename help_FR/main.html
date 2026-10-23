@@ -1,0 +1,301 @@
+<html>
+<head>
+<title>Manuel Utilisateur</title>
+</head>
+<body link="blue" vlink="purple">
+<div>
+<p>&nbsp;</p>
+
+</div>
+<H1 align="center"><IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0">Écran principal<IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0"></H1>
+<P align="center">&nbsp;</P>
+<div>
+<h2><a name="1_mainframe"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Zones de la fenêtre principale</a></h2>
+
+</div>
+<P align="center"><img border="0" width="598" height="369" src="images/image007.jpg" v:shapes="_x0000_i1039" /></P>
+<div>
+<p>&nbsp;La fenêtre principale quatre parties&nbsp;:</p>
+
+<ul>
+<li>Les boutons de gauche concernent la gestion globale d’un fichier de navigation.</li>
+
+<li>La liste centrale contient une liste des segments chargés depuis un fichier de navigation.</li>
+
+<li>Les boutons de droite ne sont actifs que lorsqu’un segment est sélectionné, ils concernent les opérations sur un seul segment.</li>
+
+<li>Les boutons inférieurs permettent de sortir de l’application et de la paramétrer.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><a name="2_filemenu"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Gestion des fichiers</a></h2>
+
+<h3><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Boutons</h3>
+
+<table border="1" cellspacing="0" cellpadding="0" width="478">
+<tr>
+<td>
+<p align="center"><img border="0" width="47" height="39" src="images/image008.gif" v:shapes="_x0000_i1040" /></p>
+</td>
+<td valign="top">
+<p align="left"><i>Ouvrir un fichier de navigation...</i></p>
+
+<p align="left">Permet de charger en mémoire un nouveau fichier de navigation, les données préalablement chargées sont perdues.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><img border="0" width="54" height="40" src="images/image009.gif" v:shapes="_x0000_i1041" /></p>
+</td>
+<td valign="top">
+<p align="left"><i>Calculer les modèles</i></p>
+
+<p align="left">Effectue le calcul des modèles selon l’algorithme de base adapté, décrit <A href="algorithm.html#2_adapt">ici</A>.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><img border="0" width="54" height="40" src="images/image010.gif" v:shapes="_x0000_i1038" /></p>
+</td>
+<td valign="top">
+<p align="left"><i>Optimisation sur le point le plus éloigné</i></p>
+
+<p align="left">Effectue le calcul d'un modèle pour chaque segment, de façon à obtenir exactement 999 points au total (<A href="algorithm.html#4_optim">détails</A>).</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><img border="0" width="50" height="40" src="images/image011.gif" v:shapes="_x0000_i1037" /></p>
+</td>
+<td valign="top">
+<p align="left"><i>Sauvegarder les résultats…</i></p>
+
+<p align="left">Sauvegarde les données réduites au format des fichiers résumé de la base SISMER.</p>
+</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h3><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Menu</h3>
+
+<p><img width="182" height="162" src="images/image013.gif" align="left" hspace="12" v:shapes="_x0000_s1028" />&nbsp;</p>
+
+<p>On retrouve dans le menu «&nbsp;Fichier&nbsp;», les même fonctionnalités que sur les boutons.<BR>Les items «&nbsp;Ouvrir…&nbsp;», «&nbsp;Calculer&nbsp;», «&nbsp;Optimisation distance&nbsp;» et «&nbsp;Sauver&nbsp;» correspondent respectivement aux boutons «&nbsp;Ouvrir un fichier de navigation…&nbsp;», «&nbsp;Calculer les modèles&nbsp;», «&nbsp;Optimisation sur le point le plus éloigné&nbsp;» et «&nbsp;Sauvegarder les résultats…&nbsp;».<BR>On trouve en plus un item «&nbsp;Optimisation erreur&nbsp;» dont la fonction est décrite plus loin.</p>
+
+<p>&nbsp;</p>
+
+</div>
+<P>&nbsp;</P>
+<div>
+<h2><a name="3_list"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Liste des segments</a></h2>
+
+<p>La liste centrale contient la liste des segments qui sont chargés en mémoire.</p>
+
+<p>&nbsp;</p>
+
+<h3><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Etats de la liste</h3>
+
+<p>Au lancement de l’application cette liste est vide, elle se rempli après le chargement d’un fichier de navigation. Seule les deux première colonnes sont alors renseignées (N° et Nb points).<BR>Dans cet état, la liste prend l’apparence suivante&nbsp;:</p>
+
+<p align="center"><img border="0" width="408" height="162" src="images/image016.gif" v:shapes="_x0000_i1036" /></p>
+
+<p>Après le calcul des modèles, par n’importe lequel des moyens proposés, les autres colonnes de la liste sont renseignées.<BR>Dans cet état, la liste prend l’apparence suivante&nbsp;:</p>
+
+<p align="center"><img border="0" width="409" height="167" src="images/image018.gif" v:shapes="_x0000_i1035" /></p>
+
+<p>Dans l’exemple montré ci-dessus, les 8 premières lignes représentent chacune un segment. La dernière représente le total des points et des erreurs de tous les segments.</p>
+
+<p>&nbsp;</p>
+
+<h3><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Manipulation des lignes qui représentent un segment</h3>
+
+<p>Les colonnes ont la signification suivante&nbsp;:</p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">
+<p><i>N°</i></p>
+</td>
+<td valign="top">
+<p>numéro d'ordre du segment</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><i>Nb points</i></p>
+</td>
+<td valign="top">
+<p>nombre de point dans le segment avant l'optimisation</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><i>Modèle</i></p>
+</td>
+<td valign="top">
+<p>nom du modèle sélectionné (voir plus bas le fonctionnement de la liste déroulante)</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><i>Nb pts</i></p>
+</td>
+<td valign="top">
+<p>nombre de points dans le segment optimisé</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><i>Erreur</i></p>
+</td>
+<td valign="top">
+<p>erreur due à l'optimisation sur le segment</p>
+</td>
+</tr>
+</table>
+
+<p>Lorsqu'une optimisation a été calculée avec les fonctions «&nbsp;Calcul automatique des modèles&nbsp;» ou, sur un segment, par la fonction «&nbsp;Calcul automatique&nbsp;», jusqu'à 10 modèles peuvent être disponibles sur un segment.<br />
+Dans ce cas, une liste déroulante présentant les modèles calculés apparaît sur un clic de souris dans la case «&nbsp;modèle&nbsp;». La liste contient les noms des modèles, voir les chapitres suivants.</p>
+
+<p align="center"><img border="0" width="409" height="182" src="images/image020.jpg" v:shapes="_x0000_i1033" /></p>
+
+<p>&nbsp;</p>
+
+<h3><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Manipulation de la ligne «&nbsp;total&nbsp;»</h3>
+
+<p>Les colonnes ont la signification suivante&nbsp;:</p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top">
+<p><i>N°</i></p>
+</td>
+<td valign="top">
+<p>&quot;total&quot;</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><i>Nb points</i></p>
+</td>
+<td valign="top">
+<p>nombre de points total dans le fichier de navigation</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><i>Modèle</i></p>
+</td>
+<td valign="top">
+<p>habituellement vide, sauf quand un modèle globale est choisi (voir plus loin le fonctionnement de la liste déroulante)</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><i>Nb pts</i></p>
+</td>
+<td valign="top">
+<p>total des nombre de points optimisés, cette valeur doit être inférieure ou égale à 999 pour que le fichier écrit soit valide.</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><i>Erreur</i></p>
+</td>
+<td valign="top">
+<p>somme des erreurs sur chaque segment.</p>
+</td>
+</tr>
+</table>
+
+<p>La case &quot;modèle&quot; de la ligne total est le plus souvent vide. Sur un clic de souris, une liste déroulante apparaît et propose des critères sur l'erreur. Cette liste est un moyen de définir le modèle par défaut des segments</p>
+
+<p align="center"><img border="0" width="413" height="96" src="images/image022.gif" v:shapes="_x0000_i1034" /></p>
+
+<p>Si l'on sélectionne un niveau d'erreur, l'application va sélectionner, pour chaque segment et parmi les modèles disponibles, le premier qui pour lequel l'erreur est inférieure au niveau sélectionné. Si aucun modèle ne correspond, le segment n'a aucun modèle sélectionné, il considère donc que le segment n'est pas optimisé.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="3_segmentmenu"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Manipulation d’un segment</a></h2>
+
+<h3><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Boutons</h3>
+
+<table border="1" cellspacing="0" cellpadding="0" width="478">
+<tr>
+<td>
+<p align="center"><img border="0" width="60" height="40" src="images/image023.gif" v:shapes="_x0000_i1030" /></p>
+</td>
+<td valign="top">
+<p align="left"><i>Visualiser le segment…</i></p>
+
+<p align="left">Ouvre la visionneuse de segment, voir <A href="segmentmenu.html">ici</A>.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><img border="0" width="67" height="40" src="images/image024.gif" v:shapes="_x0000_i1031" /></p>
+</td>
+<td valign="top">
+<p align="left"><i>Calcul personnalisé…</i></p>
+
+<p align="left">Effectue un calcul personnalisé pour le segment sélectionné, en demandant le nombre de points à obtenir.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><img border="0" width="67" height="40" src="images/image025.gif" v:shapes="_x0000_i1032" /></p>
+</td>
+<td valign="top">
+<p align="left"><i>Calcul par défaut</i></p>
+
+<p align="left">Effectue le calcul des modèles pour le segment sélectionné, selon l’algorithme de base adapté, décrit<A href="algorithm.html#2_adapt"> ici</A>.</p>
+</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h3><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Menu</h3>
+
+<p><img width="184" height="96" src="images/image027.gif" align="left" hspace="12" v:shapes="_x0000_s1031" />On retrouve dans le menu «&nbsp;Segment&nbsp;», les mêmes fonctionnalités que sur les boutons.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="4_options"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Options et sortie de l’application</a></h2>
+
+<p><img border="0" width="523" height="42" src="images/image030.gif" v:shapes="_x0000_i1078" /></p>
+
+<p>En bas de la fenêtre principale ont trouve trois composants :</p>
+
+<ul>
+<li>Un texte qui résume la projection et la distance sélectionné.</li>
+
+<li>Un bouton «&nbsp;Options…&nbsp;», qui permet d'ouvrir la boîte de dialogue des options, décrites <A href="options.html">ici</A>.</li>
+
+<li>Un bouton «&nbsp;Quitter&nbsp;», qui permet de fermer l'application.</li>
+</ul>
+
+<div>&nbsp;</div>
+</div>
+</body>
+</html>
+

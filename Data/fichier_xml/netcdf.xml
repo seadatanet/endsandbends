@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InputModel format="GENERAL_NETCDF_FORMAT">
+	<TimeFilter enabled="true">
+		<StartDate>2010-06-30T10:00:00.000</StartDate>
+		<EndDate>2010-06-30T12:00:00.000</EndDate>
+	</TimeFilter>
+	
+	<DateTime >
+		<CdfElement type="DateAndTime" format="yyyy-MM-DDThh:mm:ss" column="3"/>
+	</DateTime>
+
+	<Coordinates>
+		<CdfElement type="Latitude" format="+DD.ddddd" column="5"/>
+		<CdfElement type="Longitude" format="+DDD.ddddd" column="6"/>
+	</Coordinates>
+</InputModel>

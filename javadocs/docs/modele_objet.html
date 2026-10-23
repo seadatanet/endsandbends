@@ -1,0 +1,271 @@
+<html>
+	<head>
+		<link rel="Edit-Time-Data" href="./modele_objet_fichiers/editdata.mso" />
+		<link rel="OLE-Object-Data" href="./modele_objet_fichiers/oledata.mso" />
+		<title>Dossier de Spécifications du Logiciel</title>
+	</head>
+	<body link="blue" vlink="purple">
+<div>
+			<div>
+        <P><IMG src="images/image001.gif" width="137" height="103" border="0"></P>
+			</div>
+		</div>
+<P>&nbsp;</P>
+<H1 align="center">Modèle Objet</H1>
+<P align="center">&nbsp;</P>
+<div>
+			<h2>
+				<a name="1_packages"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Packages</a>
+			</h2>
+			<p>Les classes utilisée dans ce projet sont réparties en cinq packages&nbsp;:</p>
+			<table border="1" cellspacing="0" cellpadding="0" width="614">
+				<tr>
+					<td>
+						<p align="left">
+							<i>ifremer.sismer.endsandbends</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							Package principal contenant le point d’entrée et les principales classes
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<i>ifremer.sismer.endsandbends.ui</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							Classes de l’interface utilisateur
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<i>ifremer.sismer.endsandbends.resources</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							Fichiers de ressources (texte et images)
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<i>ifremer.sismer.endsandbends.algorithm</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							Classes permettant de paramétrer l’algorithme (projection et calcul de distance)
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<i>ifremer.sismer.endsandbends.common</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							Classes utilitaires
+						</p>
+					</td>
+				</tr>
+			</table>
+			<p>
+				&nbsp;</p>
+			<h2>
+<a name="2_objects"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Décomposition en objets</a>
+			</h2>
+			<h3>
+				<a name="2_1_mainframe"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Fenêtre principale, racine des objets</a>
+			</h3>
+			<p>
+				La fenêtre principale de l’application est le support des tous les objets manipulés. Cette fenêtre est implémentée dans la classe <i>MainFrame</i>.</p>
+		</div>
+<P align="center"><IMG src="images/image009.gif" width="558" height="218" border="0"></P>
+			<p align="center">
+				Figure 2, classe MainFrame.
+			</p>
+<div>
+			<p>
+				Cette classe porte en particulier&nbsp;:
+			</p>
+    <UL>
+        <UL>
+            <LI>				La liste des segments chargés en mémoire.
+			</LI>
+            <LI>				La projection sélectionnée.
+			</LI>
+            <LI>				La distance sélectionnée.
+			</LI>
+        </UL>
+    </UL>
+			<p>
+				Outre ces objets, la classe <i>MainFrame</i> implémente tous les éléments visuels qui composent l’interface utilisateur.</p>
+		</div>
+<P>&nbsp;</P>
+<div>
+			<h3>
+<a name="2_2_distproj"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Distances et projections</a>
+			</h3>
+			<p>
+				Deux types de distances sont implémentées&nbsp;:
+			</p>
+    <UL>
+        <UL>
+            <LI>				<i>VerticalDistanceToLine</i>, distance verticale
+			</LI>
+            <LI>				<i>OrthoDistanceToLine</i>, distance orthogonale
+			</LI>
+        </UL>
+    </UL>
+		</div>
+			<p align="center">
+<IMG src="images/image011.gif" width="494" height="218" border="0"></p>
+<P align="center">				Figure 3, classes des distances.
+			</P>
+<div>
+			<p>
+				Deux types de projection sont également implémentées&nbsp;:
+			</p>
+    <UL>
+        <UL>
+            <LI>				<i>NullProjection</i>, projection de test, n’ayant pas de signification réelle
+			</LI>
+            <LI>				<i>GaussKruegerProjection</i>, projection de Gauss-Krueger.
+			</LI>
+        </UL>
+    </UL>
+		</div>
+			<p align="center">
+<IMG src="images/image013.gif" width="452" height="206" border="0"></p>
+<P align="center">				Figure 4, classes de projection.</P>
+<P>&nbsp;</P>
+<div>
+			<h3>
+<a name="2_3_segment"><IMG src="images/level3.gif" align="bottom" width="11" height="11" border="0">&nbsp;Segments</a>
+			</h3>
+			<p>
+				L’objet central de cette application est le segment, représenté par une instance de la classe <i>NavPath</i>.<BR>				Un segment est constitué de&nbsp;:
+			</p>
+    <UL>
+        <UL>
+            <LI>				une liste de points (latitude, longitude),
+			</LI>
+            <LI>				la liste des points projetés correspondants (x, y),
+			</LI>
+            <LI>				les données relatives aux modèles calculés,
+			</LI>
+            <LI>				une indication d’un modèle sélectionné.
+			</LI>
+        </UL>
+    </UL>
+		</div>
+			<p align="center">
+<IMG src="images/image015.gif" width="227" height="320" border="0"></p>
+<P align="center">				Figure 5, classes représentant les segments.</P>
+<P>&nbsp;</P>
+<div>
+			<p>
+				La classe <i>NavPath</i> implémente également les méthodes principales du traitement&nbsp;:</p>
+			<table border="1" cellspacing="0" cellpadding="0" width="624">
+				<tr>
+					<td>
+						<p align="left">
+							<i>project()</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							projection des points constituants le segment, c’est à dire calcule des coordonnées (x,y) à partir des latitudes et longitudes
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<i>splitProjection()</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							découpe du segment en fonction de la projection
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<i>compute()</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							calcul automatiques des modèles en fonction du niveau d’erreur et du nombre de points
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<i>computeUser()</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							calcul d’un modèle en fonction d’un nombre de points cible défini par l’opérateur
+						</p>
+					</td>
+				</tr>
+			</table>
+			<p>
+&nbsp;</p>
+		</div>
+<P>Lors du chargement d’un fichier de navigation, l’application ne créé pas directement les segments dans des instances de <i>NavPath</i>, elle commence par créer un seul segment, comme une instance de la classe <i>MainNavPath</i>.<BR>				La classe MainNavPath, contient des méthodes qui permettent de charger un fichier SMF de navigation et de décomposer la campagne en segments continus, donc en une liste d’instances de <i>NavPath</i>.
+			</P>
+<div>
+			<table border="1" cellspacing="0" cellpadding="0" width="614">
+				<tr>
+					<td>
+						<p align="left">
+							<i>loadNavFile()</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							chargement d’un fichier de navigation
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p align="left">
+							<i>splitIntoContinuousPaths ()</i>
+						</p>
+					</td>
+					<td>
+						<p align="left">
+							décomposition en segments continus, la méthode renvoie un tableau d’instances de <i>NavPath</i>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<p>
+								&nbsp;</p>
+		</div>
+		<div>
+			<div>
+			</div>
+		</div>
+	</body>
+</html>
+

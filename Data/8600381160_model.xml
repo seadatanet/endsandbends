@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InputModel format="CSV_FORMAT">
+    <TimeFilter enabled="false"/>
+    <DateTime enabled="false" joinEnabled="false">
+        <CsvElement column="0" format="dd/MM/yyyy" type="date"/>
+        <CsvElement column="0" format="HHmmss.S" type="time"/>
+    </DateTime>
+    <FirstLine>25</FirstLine>
+    <LastLine>851</LastLine>
+    <Coordinates>
+        <CsvElement column="5" format="+DD.ddd" type="latitude"/>
+        <CsvElement column="6" format="+DDD.ddd" type="longitude"/>
+    </Coordinates>
+    <CheckValidity enabled="false">
+        <ColumnNumber>0</ColumnNumber>
+        <Operator>égal</Operator>
+        <ValidityValue>0.0</ValidityValue>
+    </CheckValidity>
+    <DelimiterUsed>;</DelimiterUsed>
+</InputModel>

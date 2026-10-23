@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Manuel Utilisateur</title>
+</head>
+<body link="blue" vlink="purple">
+<div>
+<p>&nbsp;</p>
+
+</div>
+
+<H1 align="center"><IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0">Algorithme de réduction des points<IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0"></H1>
+<P align="center">&nbsp;</P>
+<div>
+<h2><a name="1_base"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Algorithme de base</a></h2>
+
+<p>L’algorithme a implémenté se résume en trois points&nbsp;:</p>
+
+<ul>
+<li>Au début les deux points extrémités d’un segment sont choisis,</li>
+
+<li>Puis on ajoute uns à uns des points en prenant toujours celui qui est le plus loin de la ligne rejoignant les points déjà</li>
+</ul>
+
+<p>Le principe de fonctionnement de l’algorithme est résumé par la figure suivante.</p>
+
+<div>
+<p align="center"><img border="0" width="627" height="168" src="images/image003.gif" v:shapes="_x0000_i1288" /></p>
+
+<p align="center"><img border="0" width="627" height="168" src="images/image005.gif" v:shapes="_x0000_i1289" /></p>
+</div>
+
+<p>&nbsp;</p>
+
+<p>Dans le programme original 
+
+<i>Ends&amp;Bends</i> en Basic, l’erreur globale entre le tracé réel et le tracé simplifié est estimée par la moyenne des carrés des distances entre les points réels et le tracé simplifié, divisé par la longueur totale du tracé réel.<br />
+A l’aide de cette erreur, le logiciel défini 5 modèles correspondant chacun à un niveau d’erreur particulier (10
+
+<sup>-1</sup> pour le modèle 1, jusqu’à 10
+
+<sup>-5</sup> pour le modèle 5).</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="2_adapt"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Algorithme adapté pour prendre en compte la limite de 999 points</a></h2>
+
+<p>L’algorithme de base décrit plus haut peut être adapté pour mieux prendre en compte la limite de 999 points.<br />
+En effet, l’inconvénient de la technique «&nbsp;des modèles&nbsp;», est ces modèles ne dépendent pas du tout du nombre de point obtenu&nbsp;: il arrive fréquemment qu’un modèle ait beaucoup moins de 999 points alors que le suivant en a beaucoup plus, l’opérateur doit alors sélectionner le modèle le moins précis pour respecter la limite.<br />
+Or l’algorithme fonctionne en ajoutant les points uns à uns, on peut donc décider de l’arrêter en utilisant n’importe quel critère.</p>
+
+<p>L’algorithme implémenté dans la nouvelle application 
+
+<i>Ends&amp;Bends</i> utilise cette particularité pour calculer des modèles intermédiaires ayant un multiple de 999 points. Le résultat n’est plus limité à 5 modèles, il peut en contenir jusqu’à 10.<br />
+Deux critères sont donc utilisés pour définir un modèle&nbsp;:</p>
+
+<ul>
+<li>Soit l’erreur passe en dessous d’une limite en 10
+
+<sup>-n</sup>,</li>
+
+<li>Soit le nombre de point dépasse un multiple de 999.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h2><a name="3_segment"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Calcul par segment</a></h2>
+
+<p>Pour régler plus finement la réduction des points sur un segment, une autre variante de l’algorithme a été implémentée&nbsp;: il s’agit de demander à l’opérateur le nombre de points qu’il désire obtenir.<br />
+Dans cette variante, l’algorithme reste inchangé, mais un seul modèle est calculé. Ce modèle contient exactement le nombre de points demandés.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="4_optim"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Calcul optimisé</a></h2>
+
+<p>Finalement une dernière méthode a été implémentée, toujours en exploitant le fait que l’algorithme ajoute les points uns à uns et en changeant le critère d’arrêt pour l’ajout des points.<br />
+Ce calcul est destiné à prendre en compte la limite des 999 points sur l’ensemble de la campagne et non plus sur un seul segment.<br />
+Pour ce faire l’algorithme traite tous les segments en même temps. A chaque itération il détermine quel segment il doit optimiser puis ajoute un point à ce segment. L’algorithme s’arrête quand la somme des points des segments atteint 999.<br />
+Le choix du segment à optimiser peut se faire de deux façons&nbsp;:</p>
+
+<ul>
+<li>soit on choisit celui qui possède le point le plus éloigné du tracé simplifié,</li>
+
+<li>soit on choisit celui qui a la plus grosse erreur globale.</li>
+</ul>
+</div>
+
+<p>&nbsp;</p>
+
+<div>
+<div>&nbsp;</div>
+</div>
+</body>
+</html>
+

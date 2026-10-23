@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Manuel Utilisateur</title>
+</head>
+<body link="blue" vlink="purple">
+<div>
+<p>&nbsp;</p>
+
+</div>
+
+<H1 align="center"><IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0">Lecture, décomposition et projection des points<IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0"></H1>
+<P align="center">&nbsp;</P>
+<div>
+<h2><a name="1_project"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Projection des coordonnées</a></h2>
+
+<p>L’algorithme décrit plus bas calcule des distances, s’il fonctionnait directement à partir des coordonnées géographiques, il devrait calculer des distances sphériques. Afin d’éviter ces calculs, l’ensemble des points de navigation sont d’abord projetés.<br />
+Cependant les coordonnées originale en latitude, longitude, ne sont pas perdus et il n’y a jamais de conversion inverse. Les coordonnées projetées ne sont utilisées que pour calculer les distances, il n’y a donc aucune perte de précision sur les coordonnées écrites dans le fichier résultat.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="2_cut"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Détection des arrêts de mesure</a></h2>
+
+<p>Les fichiers SMF de navigation contiennent les données récoltées pendant une campagne entière. Or la mesure de la position du bâtiment est quelque fois interrompue, ce qui provoque des discontinuités dans le tracé de navigation.<br />
+Dès la lecture du fichier les données de la campagne sont décomposées en 
+
+<i>segments</i>. Chaque segment contient des mesures continues.<br />
+Le critère de séparation est double&nbsp;: sur le temps et sur la distance. Un écart de 10 minutes (et la distance correspondante à une vitesse de 300m par minute) est utilisé par défaut.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="3_gk"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Contraintes de la projection</a></h2>
+
+<p>La seule projection codée dans l’application est la projection de Gauss-Krueger, utilisée dans le logiciel 
+
+<i>Ends&amp;Bends</i> en Basic.<br />
+Cette projection impose une limite au-delà de laquelle les distances sont substantiellement déformées. La limite est que les points projetés dans le même système de référence ne doivent pas être séparés de plus de 5° de latitude. Cette limite est indicative, l’application permet de la modifier.<br />
+Afin de pouvoir projeter les points sans inconvénient, l’application coupe les segments trop étendus. Cette coupure est effectuée juste après la détection des arrêts de mesure, lors du chargement des données.</p>
+
+<div>&nbsp;</div>
+</div>
+</body>
+</html>
+

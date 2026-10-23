@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<InputModel format="CSV_FORMAT">
+<TimeFilter enabled="false">
+<StartDate>1999-02-12T10:20:25.0</StartDate>
+<EndDate>1999-02-13T10:20:31.0</EndDate>
+</TimeFilter>
+<DateTime enabled="true">
+<CsvElement column="2" format="dd/MM/yyyy" type="date"/>
+<CsvElement column="3" format="HHmmss" type="time"/>
+</DateTime>
+<FirstLine>7</FirstLine>
+<LastLine>18</LastLine>
+<Coordinates>
+<CsvElement column="5" format="+DD.ddd" type="latitude"/>
+<CsvElement column="6" format="+DDD.ddd" type="longitude"/>
+</Coordinates>
+<CheckValidity enabled="false">
+<ColumnNumber>3</ColumnNumber>
+<Operator>equal</Operator>
+<ValidityValue>10.0</ValidityValue>
+</CheckValidity>
+</InputModel>

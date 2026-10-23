@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<OutputModel format="ASCII_IFREMER_FORMAT">
+<Type>data</Type>
+<AsciiOperator>Edus</AsciiOperator>
+<Comments>essai</Comments>
+<CampaignId>0001</CampaignId>
+<CampaignTitle>test bouée</CampaignTitle>
+<BoatName>ifremer</BoatName>
+</OutputModel>

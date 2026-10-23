@@ -1,0 +1,60 @@
+# This CITATION.cff file was generated with cffinit and aligned with SeaDataNet FAIR standards.
+# Visit https://bit.ly/cffinit to validate or update.
+
+cff-version: 1.2.0
+title: EndsAndBends Software
+message: >-
+  EndsAndBends is a marine navigation data quality control and track
+  reduction tool. It helps data centres prepare and check navigation
+  records while retaining a representative description of ship
+  trajectories.
+type: software
+authors:
+  - name: Ifremer
+    address: 1625 route de Sainte-Anne
+    city: Plouzané
+    post-code: '29280'
+    country: FR
+    location: Bretagne
+    website: 'https://www.seadatanet.org/'
+    email: sdn-userdesk@seadatanet.org
+identifiers:
+  - type: doi
+    value: '10.12770/5fea5584-e16a-4c22-927f-b11e25ff7b58'
+  - type: url
+    value: 'https://sextant.ifremer.fr/record/5fea5584-e16a-4c22-927f-b11e25ff7b58/'
+repository-code: 'https://github.com/seadatanet/endsandbends'
+url: 'https://www.seadatanet.org/Software/EndsAndBends'
+abstract: >-
+  EndsAndBends is an Ifremer software tool written in Java and
+  developed in the context of SeaDataNet. It is a marine navigation
+  data quality control and track reduction tool that helps data centres
+  prepare and check navigation records while retaining a representative
+  description of ship trajectories.
+
+  The software can:
+
+  - Read and analyse navigation files in different formats (native NVI, NetCDF, CSV, NMEA, UKOOA).
+  - Detect and correct errors in navigation tracks.
+  - Reduce the number of navigation points while preserving the required positional accuracy.
+  - Export corrected and simplified data in different formats (ASCII, GML, WKT, Shapefile).
+
+  EndsAndBends contributes to data quality control, interoperability
+  and FAIRification of marine navigation data within the SeaDataNet
+  infrastructure.
+keywords:
+  - SeaDataNet
+  - E&B
+  - EndsAndBends
+  - marine navigation
+  - marine data
+  - data quality control
+  - track reduction tool
+  - trajectory
+  - ship trajectories
+  - data reduction
+  - NVI
+  - NetCDF
+  - FAIR
+license: LGPL-3.0-only
+version: '2.2.0'

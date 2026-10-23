@@ -1,0 +1,45 @@
+# Scripts de build locaux (configuration spécifique à l'utilisateur)
+build.bat
+run.bat
+
+# Scripts de lancement racine (obsolètes - maintenant dans src/distribution/)
+/EAB.bat
+/EAB.sh
+
+# Maven
+target/
+dependency-reduced-pom.xml
+
+# Anciens fichiers de build (Ant/NetBeans - obsolètes)
+build.xml
+manifest.mf
+nbproject/
+dist/
+
+# Ancienne bibliothèque (migration Maven terminée)
+lib_old/
+
+# Logs
+*.log
+endsAndBends.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+.metadata/
+bin/
+.recommenders/
+.loadpath
+.externalToolBuilders/
+*.launch
+.buildpath
+.target/
+local.properties
+
+# OS
+.DS_Store
+Thumbs.db

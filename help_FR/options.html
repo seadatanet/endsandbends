@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>Manuel Utilisateur</title>
+</head>
+<body link="blue" vlink="purple">
+<div>
+<p>&nbsp;</p>
+
+</div>
+<H1 align="center"><IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0">Options<IMG src="images/level1.gif" align="texttop" width="35" height="36" border="0"></H1>
+<P align="center">&nbsp;</P>
+<div>
+<p>L'application Ends &amp; Bends est largement paramétrable pour ce qui concerne les calculs et l'export de fichier résumé.<br />
+Le boutons «&nbsp;Options&nbsp;» donne accès à une boîte de dialogue qui contient cinq onglets, chacun permettant de paramétrer un aspect de l'application.</p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+<p align="center"><i>Informations</i></p>
+</td>
+<td>
+<p align="left">Permet de paramétrer les données d'entête écrites dans le fichier résumé.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><i>Seuils</i></p>
+</td>
+<td>
+<p align="left">Permet de définir les seuils utilisés lors du chargement du fichier, l'écart en temps qui permet de détecter les discontinuités de segment et le nombre de points autorisés dans un fichier résumé.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><i>Projection</i></p>
+</td>
+<td>
+<p align="left">Permet de choisir la projection.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><i>Distance</i></p>
+</td>
+<td>
+<p align="left">Permet de choisir la distance.</p>
+</td>
+</tr>
+
+<tr>
+<td>
+<p align="center"><i>Gauss-Krueger</i></p>
+</td>
+<td>
+<p align="left">Permet de régler les paramètres spécifiques à la projection de Gauss-Krueger.</p>
+</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h2><a name="1_infos"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Informations</a></h2>
+
+<p>Cette page permet de saisir les informations nécessaires pour renseigner les entêtes des fichiers résumé exportés par la fonction «&nbsp;Sauvegarde du fichier résumé&nbsp;».</p>
+
+<p align="center"><img border="0" width="592" height="335" src="images/image038.jpg" v:shapes="_x0000_i1252" /></p>
+
+<p>&nbsp;</p>
+
+<h2><a name="2_levels"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Seuils</a></h2>
+
+<p>Cette page permet de régler les seuils utilisés dans lors du chargement du fichier et dans les calculs.</p>
+
+<p>Deux seuils sont pris en compte :</p>
+
+<ul>
+<li>Le seuil à partir duquel on considère que la navigation a été interrompue, il est utilisé lors du chargement des fichiers de navigation pour décomposer la campagne en segments continus (cf. §3.2.2). Initialement ce seuil est de type "temps" et est positionné à 10 minutes.</li>
+
+<li>Le nombre positions que peut contenir un fichier résumé, il est utilisé dans les calculs des modèles automatiques ou optimisés.</li>
+</ul>
+
+<p align="center"><img border="0" width="592"  src="images/image040.jpg" v:shapes="_x0000_i1256" /></p>
+
+<p>&nbsp;</p>
+
+<h2><a name="3_projection"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Projection</a></h2>
+
+<p>Cette page permet de choisir le type de projection utilisé au chargement des fichiers de navigation.<br />
+Actuellement, seule la projection de Gauss-Krueger est implémentée.</p>
+
+<p align="center"><img border="0" width="544" height="269" src="images/image042.gif" v:shapes="_x0000_i1291" /></p>
+
+<p>&nbsp;</p>
+
+<h2><a name="4_distance"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Distance</a></h2>
+
+<p>Cette page permet de choisir la distance qui est utilisée dans les calculs. Cette distance est mesurée entre un point et une droite.<br />
+Deux distances sont disponibles :</p>
+
+<ol type="1">
+<li>La distance Verticale, calculée sur l'axe des ordonnées, entre un point et la droite optimisée.</li>
+
+<li>La distance Horizontale, qui détermine la distance séparant un point d'une droite sur la ligne perpendiculaire à cette droite.</li>
+</ol>
+
+<p align="center"><img border="0" width="578" height="268" src="images/image044.gif" v:shapes="_x0000_i1264" /></p>
+
+<p>&nbsp;</p>
+
+<h2><a name="5_gauss"><IMG src="images/level2.gif" align="bottom" width="14" height="14" border="0">&nbsp;Gauss-Krueger</a></h2>
+
+<p>Cette page permet de définir les paramètres spécifiques à la projection de Gauss-Krueger.<br />
+Ces paramètres définissent l'écart maximal de longitude que peut supporter la projection.<br />
+Pour être plus souple, ce paramètre est décomposé en deux :</p>
+
+<ul>
+<li>La distance angulaire que peut atteindre un segment unique sans que l'algorithme de chargement ne décide de le couper. Par défaut ce paramètre est positionné à 11°.</li>
+
+<li>La distance angulaire à partir de laquelle un segment qui aurait dépassé le premier seuil est coupé. Par défaut ce paramètre est positionné à 10.</li>
+</ul>
+
+<p>Cette décomposition a pour but d'éviter de créer des segments très petits. Par exemple, avec les valeurs par défaut, un segment dont l'écart maximal est de 11,05° sera coupé en deux segments de 10° et de 1,05°.</p>
+
+<p align="center"><img border="0" width="578" height="325" src="images/image046.gif" v:shapes="_x0000_i1267" /></p>
+<div>&nbsp;</div>
+</div>
+</body>
+</html>
+

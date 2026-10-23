@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<link rel="Edit-Time-Data" href="./modele_objet_fichiers/editdata.mso" />
+		<link rel="OLE-Object-Data" href="./modele_objet_fichiers/oledata.mso" />
+		<title>Dossier de Spécifications du Logiciel</title>
+	</head>
+	<body link="blue" vlink="purple">
+<div>
+			<div>
+        <P><IMG height=103 src="images/image001.gif" width=137 border=0></P>
+			</div>
+		</div>
+<P>&nbsp;</P>
+<H1 align="center"><a name="_Toc46225097">Guide d’évolution</a></H1>
+<P align="center">&nbsp;</P>
+<div>
+			<h2>
+				<a name="1_project"><IMG height=14 src="images/level2.gif" width=14 align=bottom border=0>&nbsp;Ajout d’une nouvelle projection</a><BR>&nbsp;</h2>
+			<p>
+				On peut ajouter une nouvelle projection en implémentant une nouvelle classe spécialisée depuis la classe abstraite <i>GeoProjection</i>.<BR>				Après la création de la classe, il reste à l’intégrer dans l’interface utilisateur.</p>
+		</div>
+<P>&nbsp;</P>
+<div>
+			<p>
+			</p>
+			<h3>
+				<a name="1_1_method"><IMG height=11 src="images/level3.gif" width=11 align=bottom border=0>&nbsp;Méthodes à surcharger</a>
+			</h3>
+    <UL>
+        <LI>				<b><i>boolean canProject(int indexStart, double[] latitudes, double[] longitudes)</i></b>
+			<p>
+				Teste si la projection d'un tableau de point est possible pour cette projection, renvoie <i>true</i> ou <i>false</i> selon le cas.<BR>				Par exemple pour la projection de Gauss-Krueger, cette méthode teste si les points n’ont pas un écart en latitude plus important que le seuil.
+			</p>
+			</LI>
+    </UL>
+    <UL>
+        <LI>				<b><i>int getProjectableIndex(int indexStart, double[] latitudes, double[] longitudes)</i></b>
+			<p>
+				Renvoie l'indice du premier point qui sort des critères de projection, c'est à dire que cette projection peut projeter d'un seul coup tous les points entre <i>indexStart</i> inclu et I exclu.</p>
+			</LI>
+    </UL>
+    <UL>
+        <LI>				<b><i>boolean initialize(double [] latitudes, double [] longitudes)</i></b>
+			<p>
+				Initialisation de la projection, calibrage. Par exemple la projection de Gauss-Krueger, utilise cette méthode pour calculer le méridien central de la projection.
+			</p>
+			</LI>
+    </UL>
+    <UL>
+        <LI>				<b><i>Point2D project(double latitude, double longitude)</i></b>
+			<p>
+				Projection d’un point.</p>
+			</LI>
+    </UL>
+		</div>
+<P>&nbsp;</P>
+<div>
+			<p>
+			</p>
+			<h3>
+				<a name="1_2_interface"><IMG height=11 src="images/level3.gif" width=11 align=bottom border=0>&nbsp;Intégration dans l’interface</a>
+			</h3>
+			<p>
+				La déclaration de la nouvelle classe doit se faire dans la classe <i>OptionProjection</i> du package <i>ifremer.sismer.endsandbends.ui</i>.
+			</p>
+			<p>
+			</p>
+			<p>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Créer un vecteur contenant les projections :<BR>					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ProjectionListProxy [] list = <b>new</b> ProjectionListProxy [<b>2</b>];<BR>				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; list[0] = <b>new</b> ProjectionListProxy(NullProjection.<b>class</b>,<BR>				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringTable.get("proj_null_name"),<BR>				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringTable.get("proj_null_desc"));<BR>					<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; list[1] = new ProjectionListProxy(GaussKruegerProjection.class,<BR></b>					<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringTable.get("proj_gk_name"),<BR></b>					<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; StringTable.get("proj_gk_desc"));<BR></b>				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _ctrlListProjections.setListData(list);
+			</p>
+			<p>
+				Il suffit d’ajouter une ligne comme celle qui est indiquée en gras dans le code ci-dessus. Attention à changer la taille d’allocation du tableau montrée sur la seconde ligne.
+			</p>
+<P>&nbsp;</P>
+<H2><A name=2_translate><IMG height=14 src="images/level2.gif" width=14 
+align=bottom border=0>&nbsp;Traduction ou changement des textes</A><BR>&nbsp;</H2>
+<P>L’application utilise une table 
+des chaînes pour la plupart des textes affichés à l’écran. Pour modifier les 
+textes ou traduire l’application il suffit de modifier le fichier de ressources 
+de l’application.</P>
+<P>Le fichier de ressources se trouvent dans le répertoire&nbsp;:<BR>
+<I>/ifremer/sismer/endsandbends/resources</I>, à partir de la racines des sources de l’application.<BR>
+Soit, sur le CD, <I>/EndsAndBends/Sources/ifremer/sismer/endsandbends/resources</I>.</P>
+<P>Après avoir modifier ce fichier, il faut recompiler le package Java <I>EndsAndBends.jar</I>. Cette opération ne 
+peut s’effectuer que si un environnement de développement Java est installé.</P>
+<P>&nbsp;</P>
+		</div>
+	</body>
+</html>
+

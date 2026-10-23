@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<InputModel format="NETCDF_NVI_FORMAT">
+	<TimeFilter enabled="true">
+		<StartDate>2010-06-30T10:00:00.000</StartDate>
+		<EndDate>2010-06-30T12:00:00.000</EndDate>
+	</TimeFilter>
+	
+	<ForceSplit enabled="true">
+		<Segment startDate="2010-06-30T10:00:00.000" endDate="2010-06-30T10:00:00.000"></Segment>
+		<Segment startDate="2010-06-30T10:00:00.000" endDate="2010-06-30T10:00:00.000"></Segment>
+		<Segment startDate="2010-06-30T10:00:00.000" endDate="2010-06-30T10:00:00.000"></Segment>
+		<Segment startDate="2010-06-30T10:00:00.000" endDate="2010-06-30T10:00:00.000"></Segment>
+		<Segment startDate="2010-06-30T10:00:00.000" endDate="2010-06-30T10:00:00.000"></Segment>
+		<Segment startDate="2010-06-30T10:00:00.000" endDate="2010-06-30T10:00:00.000"></Segment> 
+	</ForceSplit>
+</InputModel>
